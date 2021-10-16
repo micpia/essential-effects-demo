@@ -1,9 +1,9 @@
 package com.catsy
 
-import cats.effect.IOApp
-import cats.effect.IO
+import cats.effect.{ExitCode, IO, IOApp}
 
-object Main extends IOApp.Simple {
+object Main extends IOApp {
 
-  def run: IO[Unit] = ???
+  override def run(args: List[String]): IO[ExitCode] = IO.pure(ExitCode.Success)
+
 }
