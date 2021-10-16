@@ -1,5 +1,8 @@
 package com.catsy
 
+import cats.effect.IO
+import org.joda.time.DateTime
+
 import java.util.concurrent.TimeUnit
 import scala.concurrent.duration.FiniteDuration
 
@@ -13,5 +16,11 @@ class Timing {
     end <- clock
     duration = FiniteDuration(end - start, TimeUnit.MILLISECONDS)
   } yield (duration, res)
+
+  def tickingClock: IO[Unit] = for {
+    _ <- IO.println(DateTime.now())
+    _ <- IO.sleep(FiniteDuration(1, TimeUnit.SECONDS))
+    _ <- tickingClock
+  } yield ()
 
 }
