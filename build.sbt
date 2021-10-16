@@ -1,8 +1,6 @@
 ThisBuild / organization := "com.example"
 ThisBuild / scalaVersion := "2.13.5"
 
-hydraIsEnabled := false
-
 lazy val root = (project in file(".")).settings(
   name := "essential-effect-demo",
   libraryDependencies ++= Seq(
